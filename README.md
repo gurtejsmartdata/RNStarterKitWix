@@ -33,7 +33,7 @@ Following dependencies are used
  -seamless-immutable
 
 ## Author
-Parshant Nagpal
+Ravi Kumar
 
 Rename the project by the following commands
 - Install react-native-rename npm globally 
