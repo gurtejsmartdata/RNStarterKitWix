@@ -45,12 +45,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.rnnavigationv2boilerkit",
+    package = "com.reactnativeboilerplatev2rn55",
 )
 
 android_resource(
     name = "res",
-    package = "com.rnnavigationv2boilerkit",
+    package = "com.reactnativeboilerplatev2rn55",
     res = "src/main/res",
 )
 

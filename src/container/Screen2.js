@@ -7,8 +7,10 @@ import {
 } from 'react-native'
 import { goToAuth } from '../config/navigation'
 import {Navigation} from 'react-native-navigation';
-
-export default class Screen2 extends React.Component {
+import {connect} from 'react-redux';
+import * as AppAction from '../actions'
+ 
+class Screen2 extends React.Component {
   static get options() {
     return {
       topBar: {
@@ -23,7 +25,10 @@ export default class Screen2 extends React.Component {
       <View style={styles.container}>
         <Text>Screen 2</Text>
         <Button
-          onPress={() => Navigation.pop(this.props.componentId)}
+          onPress={() => {
+            // Navigation.pop(this.props.componentId)
+            this.props.dispatch(AppAction.pop(this.props.componentId,'Screen2'))
+          }}
           title="Go Back"
         />
       </View>
@@ -38,3 +43,4 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
+export default connect(null,null)(Screen2)

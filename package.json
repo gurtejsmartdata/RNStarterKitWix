@@ -1,16 +1,16 @@
 {
-  "name": "RNNavigationV2BoilerKit",
+  "name": "reactNativeBoilerPlateV2RN55",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
-    "react": "16.5.0",
-    "react-native": "0.57.1",
-    "react-native-navigation": "^2.0.2562",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-navigation": "^2.0.2567",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-immutable-state-invariant": "^2.1.0",
@@ -21,9 +21,9 @@
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
+    "babel-preset-react-native": "4.0.1",
     "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.46.0",
-    "react-test-renderer": "16.5.0"
+    "react-test-renderer": "16.3.1"
   },
   "jest": {
     "preset": "react-native"

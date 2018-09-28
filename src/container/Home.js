@@ -37,11 +37,12 @@ import {Navigation} from 'react-native-navigation';
         />
         <Button
           onPress={() => {
-            Navigation.push(this.props.componentId, {
-              component: {
-                name: 'Screen2',
-              }
-            });
+            // Navigation.push(this.props.componentId, {
+            //   component: {
+            //     name: 'Screen2',
+            //   }
+            // });
+            this.props.dispatch(AppAction.pushTParticulatScreen(this.props.componentId,'Screen2'))
           }}
           title="View next screen"
         />
