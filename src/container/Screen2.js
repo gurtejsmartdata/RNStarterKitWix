@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 import * as AppAction from '../actions'
  
 class Screen2 extends React.Component {
+    
   static get options() {
     return {
       topBar: {

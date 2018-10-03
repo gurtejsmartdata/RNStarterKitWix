@@ -1,12 +1,15 @@
 
 import {Navigation} from 'react-native-navigation';
 import {registerScreens} from './src/config/routes';
+import {addListeners} from './src/utilities/listeners';
 import { Provider } from "react-redux";
 import setup from "./src/store/setup";
-const store = setup();
-registerScreens(store, Provider);
+
 
 Navigation.events().registerAppLaunchedListener(() => {
+  const store = setup();
+  registerScreens(store, Provider);
+  addListeners();
   Navigation.setRoot({
     root: {
       component: {

@@ -8,14 +8,19 @@ import {
   Button,
   AsyncStorage
 } from 'react-native'
-
+import {removeListeners} from '../utilities/listeners';
 import { goHome } from '../config/navigation'
 
 import * as AppAction from '../actions'
-console.log('AppAction',AppAction)
+let removeListener = true;
 class SignIn extends React.Component {
   state = {
     username: '', password: ''
+  }
+  componentWillUnmount(){
+    if(removeListener){
+      removeListeners();
+    }  
   }
   onChangeText = (key, value) => {
     this.setState({ [key]: value })
@@ -23,6 +28,7 @@ class SignIn extends React.Component {
   signIn = () => {
     const { username, password } = this.state;
     console.log(this.props,AppAction)
+     removeListener = false;
      this.props.dispatch(AppAction.login());
     goHome();
   }

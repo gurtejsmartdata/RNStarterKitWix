@@ -4,15 +4,35 @@ import {
   Text,
   Button,
   StyleSheet,
-  AsyncStorage
+  BackHandler
 } from 'react-native'
 import { goToAuth } from '../config/navigation'
 import {connect} from 'react-redux';
 import * as AppAction from '../actions'
-
+import {removeListeners} from '../utilities/listeners';
+import { handleBackPress } from '../utilities/BackButtonHandling';
 import {Navigation} from 'react-native-navigation';
-
+let removeListener = true;
  class Home extends React.Component {
+	/*
+		Constructor Function
+	*/
+	constructor(props) {
+		super(props);
+    Navigation.events().bindComponent(this);
+
+  }
+  componentDidAppear() {
+  	// BackHandler.addEventListener('hardwareBackPress', handleBackPress); // Back Button handling
+  }
+   componentDidDisappear() {
+    // BackHandler.removeEventListener('hardwareBackPress', handleBackPress); // Back Button handling
+  }
+   componentWillUnmount(){
+    if(removeListener){
+      removeListeners();
+    }  
+  }
   static get options() {
     return {
       topBar: {
@@ -22,12 +42,13 @@ import {Navigation} from 'react-native-navigation';
       }
     };
   }
+
   logout = () => {
+    removeListener = false;
     this.props.dispatch(AppAction.logOut());
     goToAuth()
   }
   render() {
-    console.log('props; ', this.props)
     return (
       <View style={styles.container}>
         <Text>Hello from Home screen.</Text>
