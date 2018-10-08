@@ -2,33 +2,14 @@ import { Navigation } from 'react-native-navigation'
 
 export const goToAuth = () => Navigation.setRoot({
   root: {
-    bottomTabs: {
-      id: 'BottomTabsId',
+    stack: {
+      id: 'App',
       children: [
         {
           component: {
             name: 'SignIn',
-            options: {
-              bottomTab: {
-                fontSize: 12,
-                text: 'Sign In',
-                icon: require('../assets/img/signin.png')
-              }
-            }
-          },
-        },
-        {
-          component: {
-            name: 'SignUp',
-            options: {
-              bottomTab: {
-                text: 'Sign Up',
-                fontSize: 12,
-                icon: require('../assets/img/signup.png')
-              }
-            }
-          },
-        },
+          }
+        }
       ],
     }
   }
@@ -36,15 +17,53 @@ export const goToAuth = () => Navigation.setRoot({
 
 export const goHome = () => Navigation.setRoot({
   root: {
-    stack: {
-      id: 'App',
-      children: [
-        {
-          component: {
-            name: 'Home',
-          }
+    sideMenu: {
+      left: {
+        component: {
+          id: 'sideDrawer',
+          name: 'SideMenu',
         }
-    ],
+      },
+      center: {
+        bottomTabs: {
+          id: 'BottomTabsId',
+          children: [
+            {
+              stack: {
+                id: 'MY_STACK',
+                children: [{
+                  component: {
+                    name: 'Home',
+                    options: {
+                      bottomTab: {
+                        fontSize: 12,
+                        text: 'Home',
+                        icon: require('../assets/img/signin.png')
+                      }
+                    }
+                  },
+                }],
+              },
+            },
+            {
+              stack: {
+                children: [{
+                  component: {
+                    name: 'Tab2',
+                    options: {
+                      bottomTab: {
+                        text: 'Tab 2',
+                        fontSize: 12,
+                        icon: require('../assets/img/signup.png')
+                      }
+                    }
+                  },
+                }],
+              },
+            },
+          ],
+        }
+      }
     }
   }
 })

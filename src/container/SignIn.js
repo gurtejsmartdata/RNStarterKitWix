@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from "react-redux";
+import { bindActionCreators } from 'redux'
 import {
   View,
   Text,
@@ -10,13 +11,19 @@ import {
 } from 'react-native'
 import {removeListeners} from '../utilities/listeners';
 import { goHome } from '../config/navigation'
+import {Navigation} from 'react-native-navigation';
 
 import * as AppAction from '../actions'
 let removeListener = true;
 class SignIn extends React.Component {
-  state = {
-    username: '', password: ''
+  constructor(props){
+    super(props);
+    this.state = {
+      username: '', password: ''
+    }
+    this.signUp = this.signUp.bind(this);
   }
+
   componentWillUnmount(){
     if(removeListener){
       removeListeners();
@@ -31,6 +38,9 @@ class SignIn extends React.Component {
      removeListener = false;
      this.props.dispatch(AppAction.login());
     goHome();
+  }
+  signUp(){
+    this.props.dispatch(AppAction.pushTParticulatScreen(this.props.componentId,'SignUp'));
   }
   render() {
     return (
@@ -54,6 +64,10 @@ class SignIn extends React.Component {
         <Button
           title='Sign In'
           onPress={this.signIn}
+        />
+         <Button
+          title='Sign Up'
+          onPress={()=>this.signUp()}
         />
       </View>
     )
@@ -81,5 +95,10 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   user: state.user,
   app: state.app
+});
+const mapDispatchToProps = dispatch => ({
+  appAction : bindActionCreators(AppAction,dispatch)  
 })
+
+
 export default connect(mapStateToProps,null)(SignIn);
