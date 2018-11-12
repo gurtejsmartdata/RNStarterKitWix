@@ -7,16 +7,33 @@ Date : 11 Sept 2018
 
 import * as Types from "../../actionTypes";
 const initialState = {
-  isLoggedIn : false
+  isLoggedIn: false,
+  userData: null
 };
 
-export default user = (state = initialState, action) => {
+export default (user = (state = initialState, action) => {
   switch (action.type) {
+    case Types.LOGIN_REQUEST:
+      return {
+        ...state,
+        userData: null
+      };
+    case Types.LOGIN_SUCCESS:
+      return {
+        ...state,
+        userData: action.payload,
+        isLoggedIn: true
+      };
+    case Types.LOGIN_FAIL:
+      return {
+        ...state,
+        userData: null
+      };
     case Types.LOGIN:
-      return { ...state, isLoggedIn : true };
+      return { ...state, isLoggedIn: true };
     case Types.LOGOUT:
-     return { ...state, isLoggedIn : false };  
+      return { ...state, isLoggedIn: false, userData: null };
     default:
-     return state;
+      return state;
   }
-};
+});

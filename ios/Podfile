@@ -6,4 +6,6 @@ target 'reactNativeBoilerPlateV2RN55' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Messaging'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 end

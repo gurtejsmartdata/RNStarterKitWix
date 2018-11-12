@@ -1,10 +1,7 @@
-/*
- * @file: reducers.js
- * @description: Contains export all reducers.
- * @date: 9.Oct.2018
- * @author: Parshant Nagpal
- * */
 import app from "./app";
-import user from "./user"
+import user from "./user";
+import login from "./auth/login";
+import signup from "./auth/signup";
+import componentStats from "./componentStats";
 
-export { app , user};
+export { app, user, login, signup, componentStats };

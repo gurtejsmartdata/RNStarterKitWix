@@ -5,12 +5,12 @@
  * @author: Parshant Nagpal
  * */
 
-import {Navigation} from 'react-native-navigation';
-import {registerScreens} from './src/config/routes';
-import {addListeners} from './src/utilities/listeners';
+import { Navigation } from "react-native-navigation";
+import { registerScreens } from "./src/config/routes";
+import { addListeners } from "./src/utilities/listeners";
 import { Provider } from "react-redux";
 import setup from "./src/store/setup";
-import {pushNotifificationInit} from './src/utilities/PushNotification'
+import { pushNotifificationInit } from "./src/utilities/PushNotification";
 
 Navigation.events().registerAppLaunchedListener(() => {
   const store = setup();
@@ -20,8 +20,8 @@ Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       component: {
-        name: 'Loader'
+        name: "Loader"
       }
-    },
+    }
   });
 });

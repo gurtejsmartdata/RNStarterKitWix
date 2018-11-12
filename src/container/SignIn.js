@@ -4,79 +4,82 @@
  * @date: 9.Oct.2018
  * @author: Parshant Nagpal
  * */
-import React, { Fragment } from 'react'
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from "redux";
 import {
   View,
   Text,
   StyleSheet,
   TextInput,
   Button,
-  AsyncStorage
-} from 'react-native'
-import {removeListeners} from '../utilities/listeners';
-import { goHome } from '../config/navigation'
-import {Navigation} from 'react-native-navigation';
+  AsyncStorage,
+  ScrollView
+} from "react-native";
+import { removeListeners } from "../utilities/listeners";
+import { goHome } from "../config/navigation";
+import { Navigation } from "react-native-navigation";
 
-import * as AppAction from '../actions'
+import * as AppAction from "../actions";
 let removeListener = true;
+
 class SignIn extends React.Component {
-  constructor(props){
+  static options(passProps) {
+    return {};
+  }
+  constructor(props) {
     super(props);
     this.state = {
-      username: '', password: ''
-    }
+      username: "",
+      password: ""
+    };
     this.signUp = this.signUp.bind(this);
   }
 
-  componentWillUnmount(){
-    if(removeListener){
+  componentWillUnmount() {
+    if (removeListener) {
       removeListeners();
-    }  
+    }
   }
   onChangeText = (key, value) => {
-    this.setState({ [key]: value })
-  }
+    this.setState({ [key]: value });
+  };
   signIn = () => {
     const { username, password } = this.state;
-    console.log(this.props,AppAction)
-     removeListener = false;
-     this.props.dispatch(AppAction.login());
+    console.log(this.props, AppAction);
+    removeListener = false;
+    this.props.dispatch(AppAction.login());
     goHome();
-  }
-  signUp(){
-    this.props.dispatch(AppAction.pushTParticulatScreen(this.props.componentId,'SignUp'));
+  };
+  signUp() {
+    this.props.dispatch(
+      AppAction.pushTParticulatScreen(this.props.componentId, "SignUp")
+    );
   }
   render() {
+    console.log(Navigation, "this.props.componentIdthis.props.componentId");
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <TextInput
           style={styles.input}
-          placeholder='Username'
+          placeholder="Username"
           autoCapitalize="none"
           autoCorrect={false}
-          placeholderTextColor='white'
-          onChangeText={val => this.onChangeText('username', val)}
+          placeholderTextColor="green"
+          onChangeText={val => this.onChangeText("username", val)}
         />
         <TextInput
           style={styles.input}
-          placeholder='Password'
+          placeholder="Password"
           autoCapitalize="none"
           secureTextEntry={true}
-          placeholderTextColor='white'
-          onChangeText={val => this.onChangeText('password', val)}
+          placeholderTextColor="white"
+          onChangeText={val => this.onChangeText("password", val)}
         />
-        <Button
-          title='Sign In'
-          onPress={this.signIn}
-        />
-         <Button
-          title='Sign Up'
-          onPress={()=>this.signUp()}
-        />
-      </View>
-    )
+        <Button title="Sign In" onPress={this.signIn} />
+        <Button title="Sign Up" onPress={() => this.signUp()} />
+      </ScrollView>
+    );
   }
 }
 
@@ -84,27 +87,29 @@ const styles = StyleSheet.create({
   input: {
     width: 350,
     fontSize: 18,
-    fontWeight: '500',
+    fontWeight: "500",
     height: 55,
-    backgroundColor: '#42A5F5',
+    backgroundColor: "#42A5F5",
     margin: 10,
-    color: 'white',
+    color: "white",
     padding: 8,
     borderRadius: 14
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   }
-})
+});
 const mapStateToProps = state => ({
   user: state.user,
   app: state.app
 });
 const mapDispatchToProps = dispatch => ({
-  appAction : bindActionCreators(AppAction,dispatch)  
-})
+  appAction: bindActionCreators(AppAction, dispatch)
+});
 
-
-export default connect(mapStateToProps,null)(SignIn);
+export default connect(
+  mapStateToProps,
+  null
+)(SignIn);

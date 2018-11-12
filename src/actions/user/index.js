@@ -1,9 +1,8 @@
+// import RestClient from './helper/RestClient';
 /*
- * @file: app.js
- * @description: Contains All user actions.
- * @date: 9.Oct.2018
- * @author: Parshant Nagpal
- * */
+Api for registeration of rider
+*/
+
 import * as Types from "../../actionTypes";
 
 
