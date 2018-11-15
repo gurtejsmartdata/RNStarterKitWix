@@ -1,9 +1,3 @@
-/*
- * @file: Tab2.js
- * @description: Contains the Tab2 Container.
- * @date: 9.Oct.2018
- * @author: Parshant Nagpal
- * */
 import React from 'react'
 import {
   View,

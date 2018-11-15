@@ -98,7 +98,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "com.reactnativeboilerplatev2rn55"
+        applicationId "com.rnframework"
         minSdkVersion 19
         targetSdkVersion 27
         missingDimensionStrategy "RNN.reactNativeVersion", "reactNative55"
@@ -161,14 +161,8 @@ configurations.all {
 }
 
 dependencies {
-    compile project(':react-native-vector-icons')
-    implementation project(':react-native-firebase')
     implementation fileTree(dir: "libs", include: ["*.jar"])
          implementation 'com.android.support:design:27.1.1'
-    implementation "com.google.android.gms:play-services-base:15.0.1"
-         implementation 'com.google.firebase:firebase-core:16.0.1'
-    implementation "com.google.firebase:firebase-messaging:17.1.0"
-    implementation 'me.leolin:ShortcutBadger:1.1.21@aar' // <-- Add this line if you wish to use badge on Android
         implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
         implementation "com.facebook.react:react-native:+"  // From node_modules
        implementation project(':react-native-navigation')

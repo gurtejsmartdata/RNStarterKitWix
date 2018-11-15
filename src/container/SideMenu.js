@@ -1,10 +1,3 @@
-/*
- * @file: SideMenu.js
- * @description: Contains the SideMenu Container.
- * @date: 9.Oct.2018
- * @author: Parshant Nagpal
- * */
-
 import React from 'react'
 import {
   View,
