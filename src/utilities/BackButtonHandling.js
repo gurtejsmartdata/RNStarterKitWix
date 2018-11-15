@@ -2,7 +2,7 @@
  * @file: BackButtonHandling.js
  * @description: Function for handling back preess function.
  * @date: 24.Apr.2018
- * @author: Parshant Nagpal
+ * @author: Ravi Kumar
  * */
 
 'use strict';

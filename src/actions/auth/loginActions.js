@@ -38,7 +38,8 @@ export const login = data => {
 };
 
 export const logout = data => {
+  console.log("tester 1234+++++");
   return (dispatch, getState) => {
-    dispatch({ type: types.LOGOUT });
+    dispatch({ type: "LOGOUT" });
   };
 };

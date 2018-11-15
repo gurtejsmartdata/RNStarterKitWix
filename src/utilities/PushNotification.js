@@ -3,7 +3,7 @@
  * @file: PushNotification.js
  * @description: Contains all function related push notification.
  * @date: 9.Oct.2018
- * @author: Parshant Nagpal
+ * @author: Ravi Kumar
  * */
 import {Platform} from 'react-native';
 import firebase from 'react-native-firebase'

@@ -2,28 +2,28 @@
  * @file: Screen2.js
  * @description: Contains the Screen2 Container.
  * @date: 9.Oct.2018
- * @author: Parshant Nagpal
+ * @author: Ravi Kumar
  * */
 
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-import { goToAuth } from "../config/navigation";
+import { goToAuth } from "../../config/navigation";
 import { Navigation } from "react-native-navigation";
 import { connect } from "react-redux";
-import * as AppAction from "../actions";
+import * as AppAction from "../../actions";
 
-class Screen3 extends React.Component {
+class Screen4 extends React.Component {
   static get options() {
     return {
       topBar: {
         title: {
-          text: "Screen 3"
+          text: "Screen 4"
         }
       }
     };
   }
   render() {
-    console.log(this.props.componentId, "Screen3props++");
+    console.log(this.props.componentId, "Screen4props++");
     return (
       <View style={styles.container}>
         <Text>Screen 2</Text>
@@ -31,7 +31,7 @@ class Screen3 extends React.Component {
           onPress={() => {
             // Navigation.pop(this.props.componentId)
             // In Edit-Screen
-            Navigation.popTo("Component6");
+            Navigation.popTo("Component37");
           }}
           title="Go Back"
         />
@@ -39,7 +39,7 @@ class Screen3 extends React.Component {
           onPress={() => {
             Navigation.push(this.props.componentId, {
               component: {
-                name: "Screen4",
+                name: "Screen2",
                 options: {
                   bottomTabs: {
                     visible: false,
@@ -67,4 +67,4 @@ const styles = StyleSheet.create({
 export default connect(
   null,
   null
-)(Screen3);
+)(Screen4);

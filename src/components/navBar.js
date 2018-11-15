@@ -1,17 +1,35 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import RF from "react-native-responsive-fontsize";
 import FloatingLabel from "../vendors/react-native-floating-labels";
+import { Navigation } from "react-native-navigation";
 
 import { colors } from "../constants/theme";
 
 class NavBar extends Component {
   constructor(props) {
     super(props);
+    this.isSideDrawerVisible = false;
+    Navigation.events().bindComponent(this);
   }
+  navigationButtonPressed = () => {
+    alert();
+    !this.isSideDrawerVisible
+      ? (this.isSideDrawerVisible = true)
+      : (this.isSideDrawerVisible = false);
+    console.log(buttonId, "buttonIdbuttonIdbuttonId");
+    Navigation.mergeOptions(this.props.componentId, {
+      sideMenu: {
+        left: {
+          visible: this.isSideDrawerVisible
+        }
+      }
+    });
+  };
   render() {
     return (
-      <View
+      <TouchableOpacity
+        onPress={() => alert()}
         style={{
           flex: 1,
           backgroundColor: "red",
@@ -20,7 +38,8 @@ class NavBar extends Component {
           flexDirection: "row"
         }}
       >
-        <View
+        <TouchableOpacity
+          onPress={() => this.navigationButtonPressed()}
           style={{
             flex: 1,
             backgroundColor: "red",
@@ -29,7 +48,7 @@ class NavBar extends Component {
           }}
         >
           <Text>Left</Text>
-        </View>
+        </TouchableOpacity>
         <View
           style={{
             flex: 1,
@@ -50,7 +69,7 @@ class NavBar extends Component {
         >
           <Text>Right</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
