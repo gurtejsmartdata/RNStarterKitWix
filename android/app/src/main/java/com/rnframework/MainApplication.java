@@ -1,4 +1,4 @@
-package com.reactnativeboilerplatev2rn55;
+package com.rnframework;
 
 import android.app.Application;
 

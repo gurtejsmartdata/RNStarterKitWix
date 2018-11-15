@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "reactNativeBoilerPlateV2RN55.app"
-               BlueprintName = "reactNativeBoilerPlateV2RN55"
-               ReferencedContainer = "container:reactNativeBoilerPlateV2RN55.xcodeproj">
+               BuildableName = "RNFramework.app"
+               BlueprintName = "RNFramework"
+               ReferencedContainer = "container:RNFramework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "reactNativeBoilerPlateV2RN55Tests.xctest"
-               BlueprintName = "reactNativeBoilerPlateV2RN55Tests"
-               ReferencedContainer = "container:reactNativeBoilerPlateV2RN55.xcodeproj">
+               BuildableName = "RNFrameworkTests.xctest"
+               BlueprintName = "RNFrameworkTests"
+               ReferencedContainer = "container:RNFramework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "reactNativeBoilerPlateV2RN55Tests.xctest"
-               BlueprintName = "reactNativeBoilerPlateV2RN55Tests"
-               ReferencedContainer = "container:reactNativeBoilerPlateV2RN55.xcodeproj">
+               BuildableName = "RNFrameworkTests.xctest"
+               BlueprintName = "RNFrameworkTests"
+               ReferencedContainer = "container:RNFramework.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "reactNativeBoilerPlateV2RN55.app"
-            BlueprintName = "reactNativeBoilerPlateV2RN55"
-            ReferencedContainer = "container:reactNativeBoilerPlateV2RN55.xcodeproj">
+            BuildableName = "RNFramework.app"
+            BlueprintName = "RNFramework"
+            ReferencedContainer = "container:RNFramework.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "reactNativeBoilerPlateV2RN55.app"
-            BlueprintName = "reactNativeBoilerPlateV2RN55"
-            ReferencedContainer = "container:reactNativeBoilerPlateV2RN55.xcodeproj">
+            BuildableName = "RNFramework.app"
+            BlueprintName = "RNFramework"
+            ReferencedContainer = "container:RNFramework.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "reactNativeBoilerPlateV2RN55.app"
-            BlueprintName = "reactNativeBoilerPlateV2RN55"
-            ReferencedContainer = "container:reactNativeBoilerPlateV2RN55.xcodeproj">
+            BuildableName = "RNFramework.app"
+            BlueprintName = "RNFramework"
+            ReferencedContainer = "container:RNFramework.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

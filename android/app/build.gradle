@@ -98,7 +98,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "com.reactnativeboilerplatev2rn55"
+        applicationId "com.rnframework"
         minSdkVersion 19
         targetSdkVersion 27
         missingDimensionStrategy "RNN.reactNativeVersion", "reactNative55"
