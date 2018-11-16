@@ -34,6 +34,14 @@ export const registerScreens = (store, Provider) => {
     Provider,
     store
   );
+  Navigation.registerComponent(
+    "HistoryAll",
+    () => require("../container/dashboard/HistoryAll").default
+  );
+  Navigation.registerComponent(
+    "Alert",
+    () => require("../container/dashboard/Alert").default
+  );
   Navigation.registerComponentWithRedux(
     "Tab2",
     () => require("../container/tabs/Tab2").default,

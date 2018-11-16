@@ -23,7 +23,6 @@ import { handleBackPress } from "../../utilities/BackButtonHandling";
 import { Navigation } from "react-native-navigation";
 import { manageComponentStats } from "../../actions/componentStats";
 import { userList } from "../../actions/list/listAction";
-
 let removeListener = true;
 class Home extends React.Component {
   /*
@@ -122,45 +121,72 @@ class Home extends React.Component {
           </Text>
         </View> */}
         <View style={{ flex: 1 }}>
-          <FlatList
-            data={
-              this.props.listData && this.props.listData.length > 0
-                ? this.props.listData
-                : []
-            }
-            renderItem={({ item, index }) => (
-              <View
-                style={{
-                  flex: 1,
-                  flexDirection: "row",
-                  borderWidth: 1,
-                  borderColor: "#dadada"
-                }}
-                key={index}
-              >
-                <View style={{ flex: 0.7 }}>
-                  <View style={{ flexDirection: "row" }}>
-                    <Text style={styles.item}>ID : </Text>
-                    <Text style={styles.item}>{item.id}</Text>
+          <View style={{ flex: 0.05 }}>
+            <Text
+              style={{ fontSize: 25, textAlign: "center", fontWeight: "bold" }}
+            >
+              Friends
+            </Text>
+          </View>
+          <View style={{ flex: 0.95 }}>
+            <FlatList
+              data={
+                this.props.listData && this.props.listData.length > 0
+                  ? this.props.listData
+                  : []
+              }
+              renderItem={({ item, index }) => (
+                <View
+                  style={{
+                    height: 100,
+                    flexDirection: "row",
+                    borderWidth: 2,
+                    borderColor: "#dadada",
+                    marginHorizontal: 20,
+                    marginBottom: 10,
+                    borderRadius: 20,
+                    overflow: "hidden"
+                  }}
+                  key={index}
+                >
+                  <View
+                    style={{
+                      flex: 0.7,
+                      paddingTop: 10,
+                      paddingLeft: 10,
+                      paddingBottom: 10
+                    }}
+                  >
+                    <View style={{ flexDirection: "row" }}>
+                      <Text style={styles.item1}>ID : </Text>
+                      <Text style={styles.item}>{item.id}</Text>
+                    </View>
+                    <View style={{ flexDirection: "row" }}>
+                      <Text style={styles.item1}>First Name : </Text>
+                      <Text style={styles.item}>{item.first_name}</Text>
+                    </View>
+                    <View style={{ flexDirection: "row" }}>
+                      <Text style={styles.item1}>Last Name : </Text>
+                      <Text style={styles.item}>{item.last_name}</Text>
+                    </View>
                   </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <Text style={styles.item}>First Name : </Text>
-                    <Text style={styles.item}>{item.first_name}</Text>
-                  </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <Text style={styles.item}>Last Name : </Text>
-                    <Text style={styles.item}>{item.last_name}</Text>
+                  <View
+                    style={{
+                      flex: 0.3,
+                      justifyContent: "center",
+                      overflow: "hidden",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Image
+                      source={{ uri: item.avatar }}
+                      style={{ height: 80, width: 65, borderRadius: 30 }}
+                    />
                   </View>
                 </View>
-                <View style={{ flex: 0.3, justifyContent: "center" }}>
-                  <Image
-                    source={{ uri: item.avatar }}
-                    style={{ height: 100, width: 100 }}
-                  />
-                </View>
-              </View>
-            )}
-          />
+              )}
+            />
+          </View>
         </View>
         {/* <View style={{ flex: 0.2, backgroundColor: "blue" }} /> */}
       </View>
@@ -174,6 +200,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white"
+  },
+  item: {
+    fontSize: 17
+  },
+  item1: {
+    fontSize: 17,
+    fontWeight: "bold"
   }
 });
 
