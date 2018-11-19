@@ -80,7 +80,7 @@ class Home extends React.Component {
   navigateToNextScreen = () => {
     Navigation.push(this.props.componentId, {
       component: {
-        name: "Screen2",
+        name: "CardScannerScreen",
         options: {
           bottomTabs: {
             visible: false,

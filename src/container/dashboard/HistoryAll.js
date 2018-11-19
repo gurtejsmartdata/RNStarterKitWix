@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Navigation } from "react-native-navigation";
+import { TouchableOpacity } from "react-native-ui-lib";
+import BasicListScreen from "./../../components/other/BasicListScreen";
 
 export default class HistoryAll extends React.Component {
   constructor(props) {
@@ -34,65 +36,27 @@ export default class HistoryAll extends React.Component {
       });
     }
   }
+
+  navigateToNextScreen = () => {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: "FormScreen",
+        options: {
+          bottomTabs: {
+            visible: false,
+            drawBehind: true,
+            animate: true
+          }
+        }
+      }
+    });
+  };
+
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 15 }}>
         {this.state.data.length > 0 ? (
-          <ScrollView style={{ flex: 1 }}>
-            {this.state.data.map(item => {
-              return (
-                <View
-                  style={{
-                    height: 120,
-                    flexDirection: "row",
-                    borderBottomWidth: 2,
-                    borderBottomColor: "#dadada",
-                    marginBottom: 10,
-                    borderRadius: 20,
-                    overflow: "hidden"
-                  }}
-                >
-                  <View
-                    style={{
-                      flex: 0.7,
-                      paddingTop: 10,
-                      paddingHorizontal: 10,
-                      paddingBottom: 10
-                    }}
-                  >
-                    <View style={styles.details}>
-                      <Text style={styles.item1}>ID : </Text>
-                      <Text style={styles.item}>{item.id}</Text>
-                    </View>
-                    <View style={styles.details}>
-                      <Text style={styles.item1}>First Name : </Text>
-                      <Text style={styles.item}>{item.fname}</Text>
-                    </View>
-                    <View style={styles.details}>
-                      <Text style={styles.item1}>Last Name : </Text>
-                      <Text style={styles.item}>{item.lname}</Text>
-                    </View>
-                    <View style={styles.details}>
-                      <Text style={styles.item1}>Age : </Text>
-                      <Text style={styles.item}>{item.age}</Text>
-                    </View>
-                    <View style={styles.details}>
-                      <Text style={styles.item1}>Country : </Text>
-                      <Text style={styles.item}>{item.country}</Text>
-                    </View>
-                  </View>
-                  <View
-                    style={{
-                      flex: 0.3,
-                      justifyContent: "center",
-                      overflow: "hidden",
-                      alignItems: "center"
-                    }}
-                  />
-                </View>
-              );
-            })}
-          </ScrollView>
+          <BasicListScreen navigateToNextScreen={this.navigateToNextScreen} />
         ) : (
           <View style={{ flex: 1, justifyContent: "center" }}>
             <Text style={{ textAlign: "center", fontSize: 20 }}>

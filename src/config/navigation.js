@@ -40,12 +40,6 @@ export const goToAuth = () =>
                     fontFamily: "Helvetica",
                     alignment: "center"
                   },
-                  // background: {
-                  //   color: "#00ff00",
-                  //   component: {
-                  //     name: "NavBar"
-                  //   }
-                  // },
                   drawBehind: true,
                   visible: false,
                   animate: false
@@ -98,37 +92,12 @@ export const goHome = () =>
                                 icon: require("../assets/img/menu.png")
                               }
                             ],
-
-                            // subtitle: {
-                            //   text: "Sub Title",
-                            //   fontSize: 14,
-                            //   color: "white",
-                            //   fontFamily: "Helvetica",
-                            //   alignment: "center"
-                            // },
                             background: {
                               color: "#05B8CC"
-                              // component: {
-                              //   name: "NavBar"
-                              // }
                             },
                             drawBehind: false,
                             visible: true,
                             animate: true
-                            // sideMenu: {
-                            //   left: {
-                            //     width: 260,
-                            //     height: 270,
-                            //     visible: false,
-                            //     enabled: true
-                            //   },
-                            //   right: {
-                            //     width: 260,
-                            //     height: 270,
-                            //     visible: false,
-                            //     enabled: true
-                            //   }
-                            // }
                           }
                         }
                       }
@@ -160,37 +129,12 @@ export const goHome = () =>
                                 icon: require("../assets/img/menu.png")
                               }
                             ],
-
-                            // subtitle: {
-                            //   text: "Sub Title",
-                            //   fontSize: 14,
-                            //   color: "white",
-                            //   fontFamily: "Helvetica",
-                            //   alignment: "center"
-                            // },
                             background: {
                               color: "#05B8CC"
-                              // component: {
-                              //   name: "NavBar"
-                              // }
                             },
                             drawBehind: false,
                             visible: true,
                             animate: true
-                            // sideMenu: {
-                            //   left: {
-                            //     width: 260,
-                            //     height: 270,
-                            //     visible: false,
-                            //     enabled: true
-                            //   },
-                            //   right: {
-                            //     width: 260,
-                            //     height: 270,
-                            //     visible: false,
-                            //     enabled: true
-                            //   }
-                            // }
                           }
                         }
                       }
@@ -222,136 +166,17 @@ export const goHome = () =>
                                 icon: require("../assets/img/menu.png")
                               }
                             ],
-
-                            // subtitle: {
-                            //   text: "Sub Title",
-                            //   fontSize: 14,
-                            //   color: "white",
-                            //   fontFamily: "Helvetica",
-                            //   alignment: "center"
-                            // },
                             background: {
                               color: "#05B8CC"
-                              // component: {
-                              //   name: "NavBar"
-                              // }
                             },
                             drawBehind: false,
                             visible: true,
                             animate: true
-                            // sideMenu: {
-                            //   left: {
-                            //     width: 260,
-                            //     height: 270,
-                            //     visible: false,
-                            //     enabled: true
-                            //   },
-                            //   right: {
-                            //     width: 260,
-                            //     height: 270,
-                            //     visible: false,
-                            //     enabled: true
-                            //   }
-                            // }
                           }
                         }
                       }
                     }
                   ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  });
-
-export const goToHistory = () =>
-  Navigation.setRoot({
-    root: {
-      sideMenu: {
-        left: {
-          component: {
-            id: "sideDrawer",
-            name: "SideMenu"
-          }
-        },
-
-        center: {
-          stack: {
-            children: [
-              {
-                component: {
-                  name: "HistoryAll",
-                  id: "His",
-                  options: {
-                    topBar: {
-                      visible: true,
-                      hideOnScroll: false,
-                      title: {
-                        text: "HISTORY",
-                        color: "white"
-                      },
-                      leftButtons: {
-                        id: "buttonOne",
-                        icon: require("../assets/img/menu.png")
-                      },
-                      background: {
-                        color: "#05B8CC"
-                      },
-                      drawBehind: true,
-                      visible: true,
-                      animate: true
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  });
-
-export const goToAlert = () =>
-  Navigation.setRoot({
-    root: {
-      sideMenu: {
-        left: {
-          component: {
-            id: "sideDrawer",
-            name: "SideMenu"
-          }
-        },
-
-        center: {
-          stack: {
-            children: [
-              {
-                component: {
-                  name: "Notifications",
-                  id: "noti",
-                  options: {
-                    topBar: {
-                      visible: true,
-                      hideOnScroll: false,
-                      title: {
-                        text: "Alerts",
-                        color: "white"
-                      },
-                      leftButtons: {
-                        id: "buttonOne",
-                        icon: require("../assets/img/menu.png")
-                      },
-                      background: {
-                        color: "#05B8CC"
-                      },
-                      drawBehind: true,
-                      visible: true,
-                      animate: true
-                    }
-                  }
                 }
               }
             ]

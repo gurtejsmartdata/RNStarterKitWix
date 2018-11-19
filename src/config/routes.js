@@ -89,6 +89,40 @@ export const registerScreens = (store, Provider) => {
     store
   );
 
+  Navigation.registerComponentWithRedux(
+    "AnimatedImageScreen",
+    () => require("../components/other/AnimatedImageScreen").default,
+    Provider,
+    store
+  );
+
+  Navigation.registerComponentWithRedux(
+    "CardScannerScreen",
+    () => require("../components/other/CardScannerScreen").default,
+    Provider,
+    store
+  );
+
+  Navigation.registerComponentWithRedux(
+    "FeatureHighlightScreen",
+    () => require("../components/other/FeatureHighlightScreen").default,
+    Provider,
+    store
+  );
+  Navigation.registerComponentWithRedux(
+    "FormScreen",
+    () => require("../components/other/FormScreen").default,
+    Provider,
+    store
+  );
+
+  Navigation.registerComponentWithRedux(
+    "BasicListScreen",
+    () => require("../components/other/BasicListScreen").default,
+    Provider,
+    store
+  );
+
   Navigation.registerComponent(
     "CustomButton",
     () => require("../components/customLeft").default
