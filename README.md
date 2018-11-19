@@ -32,6 +32,11 @@ Following dependencies are used
 -redux-persist
 -redux-thunk
 -seamless-immutable
+-react-native-ui-lib
+
+## UI libraries
+https://z448401921.github.io/react-native-ui-lib/uilib-docs/public/docs/ListItem/
+
 
 ## Author
 
