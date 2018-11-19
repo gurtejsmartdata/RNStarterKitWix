@@ -47,6 +47,3 @@ Rename the project by the following commands
 - Install react-native-rename npm globally
 - Run react-native-rename 'Your Project Name' -b 'your package name' eg: react-native-rename ReactApp -b com.reactApp
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
