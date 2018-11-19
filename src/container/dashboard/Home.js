@@ -5,7 +5,7 @@
  * @author: Ravi Kumar
  * */
 
-import React from "react";
+import React, { Suspense } from "react";
 import {
   View,
   Text,
@@ -13,7 +13,8 @@ import {
   StyleSheet,
   BackHandler,
   FlatList,
-  Image
+  Image,
+  TouchableOpacity
 } from "react-native";
 import { goToAuth } from "../../config/navigation";
 import { connect } from "react-redux";
@@ -23,7 +24,11 @@ import { handleBackPress } from "../../utilities/BackButtonHandling";
 import { Navigation } from "react-native-navigation";
 import { manageComponentStats } from "../../actions/componentStats";
 import { userList } from "../../actions/list/listAction";
+
+import UsersList from "./../../components/users/usersList";
+
 let removeListener = true;
+
 class Home extends React.Component {
   /*
 		Constructor Function
@@ -33,17 +38,24 @@ class Home extends React.Component {
     this.isSideDrawerVisible = false;
     Navigation.events().bindComponent(this);
   }
-  componentWillMount() {
-    console.log("WILLLLLMOUNTING");
-    this.props.userList();
+
+  static getDerivedStateFromProps(props, state) {
+    // Store prevId in state so we can compare when props change.
+    // Clear out previously-loaded data (so we don't render stale stuff).
+    console.log(props, state, "props, stateprops, state");
+    if (props.listData !== (state && state.listData)) {
+      return {
+        listData: props.listData
+      };
+    }
+    // No state update necessary
+    return null;
   }
 
   navigationButtonPressed({ buttonId }) {
-    console.log("WILLLLLMOUNTING");
     !this.isSideDrawerVisible
       ? (this.isSideDrawerVisible = true)
       : (this.isSideDrawerVisible = false);
-
     if (buttonId === "buttonOne") {
       Navigation.mergeOptions(this.props.componentId, {
         sideMenu: {
@@ -63,8 +75,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    console.log("DIDDDMOUNTING");
-
+    this.props.userList();
     this.props.dispatch(
       manageComponentStats(
         this.props.componentId,
@@ -85,110 +96,33 @@ class Home extends React.Component {
     goToAuth();
   };
 
+  navigateToNextScreen = () => {
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: "Screen2",
+        options: {
+          bottomTabs: {
+            visible: false,
+            drawBehind: true,
+            animate: true
+          }
+        }
+      }
+    });
+  };
+
   render() {
     console.log(this.props, "props++home");
     return (
       <View style={{ flex: 1 }}>
-        {/* <Text>Hello from Home screen.</Text> */}
-        {/* <Button onPress={() => this.logout()} title="Sign Out" /> */}
-        {/* <Button
-          onPress={() => {
-            Navigation.push(this.props.componentId, {
-              component: {
-                name: "Screen2",
-                options: {
-                  bottomTabs: {
-                    visible: false,
-                    drawBehind: true,
-                    animate: true
-                  }
-                }
-              }
-            });
-          }}
-          title="View next screen"
-        /> */}
-        {/* <View style={{ flex: 0.5, backgroundColor: "white" }}>
-          <Text
-            style={{
-              fontSize: 20,
-              textAlign: "center",
-              fontWeight: "bold",
-              color: "black"
-            }}
-          >
-            Your Friends
-          </Text>
-        </View> */}
         <View style={{ flex: 1 }}>
-          <View style={{ flex: 0.05 }}>
-            <Text
-              style={{ fontSize: 25, textAlign: "center", fontWeight: "bold" }}
-            >
-              Friends
-            </Text>
-          </View>
-          <View style={{ flex: 0.95 }}>
-            <FlatList
-              data={
-                this.props.listData && this.props.listData.length > 0
-                  ? this.props.listData
-                  : []
-              }
-              renderItem={({ item, index }) => (
-                <View
-                  style={{
-                    height: 100,
-                    flexDirection: "row",
-                    borderWidth: 2,
-                    borderColor: "#dadada",
-                    marginHorizontal: 20,
-                    marginBottom: 10,
-                    borderRadius: 20,
-                    overflow: "hidden"
-                  }}
-                  key={index}
-                >
-                  <View
-                    style={{
-                      flex: 0.7,
-                      paddingTop: 10,
-                      paddingLeft: 10,
-                      paddingBottom: 10
-                    }}
-                  >
-                    <View style={{ flexDirection: "row" }}>
-                      <Text style={styles.item1}>ID : </Text>
-                      <Text style={styles.item}>{item.id}</Text>
-                    </View>
-                    <View style={{ flexDirection: "row" }}>
-                      <Text style={styles.item1}>First Name : </Text>
-                      <Text style={styles.item}>{item.first_name}</Text>
-                    </View>
-                    <View style={{ flexDirection: "row" }}>
-                      <Text style={styles.item1}>Last Name : </Text>
-                      <Text style={styles.item}>{item.last_name}</Text>
-                    </View>
-                  </View>
-                  <View
-                    style={{
-                      flex: 0.3,
-                      justifyContent: "center",
-                      overflow: "hidden",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Image
-                      source={{ uri: item.avatar }}
-                      style={{ height: 80, width: 65, borderRadius: 30 }}
-                    />
-                  </View>
-                </View>
-              )}
-            />
-          </View>
+
+          <UsersList
+            listData={this.props.listData}
+            navigateToNextScreen={this.navigateToNextScreen}
+          />
+
         </View>
-        {/* <View style={{ flex: 0.2, backgroundColor: "blue" }} /> */}
       </View>
     );
   }

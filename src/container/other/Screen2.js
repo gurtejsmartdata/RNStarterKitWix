@@ -24,6 +24,17 @@ class Screen2 extends React.Component {
     };
   }
 
+  static getDerivedStateFromProps(props, state) {
+    // Store prevId in state so we can compare when props change.
+    // Clear out previously-loaded data (so we don't render stale stuff).
+    console.log(props, state, "props, stateprops, state");
+    if (props !== state) {
+      return {};
+    }
+    // No state update necessary
+    return null;
+  }
+
   componentDidMount() {
     this.props.dispatch(
       manageComponentStats(
