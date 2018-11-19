@@ -3,6 +3,11 @@ import { ScrollView, StyleSheet, ActivityIndicator } from "react-native";
 import { AnimatedImage, Constants, Colors } from "react-native-ui-lib"; //eslint-disable-line
 import _ from "lodash";
 
+const SampleImages = [
+  "https://static.pexels.com/photos/50721/pencils-crayons-colourful-rainbow-50721.jpeg",
+  "https://static.pexels.com/photos/60628/flower-garden-blue-sky-hokkaido-japan-60628.jpeg"
+];
+
 export default class AnimatedImageScreen extends Component {
   render() {
     return (
@@ -24,12 +29,7 @@ export default class AnimatedImageScreen extends Component {
     );
   }
 }
-const SampleImages = [
-  "https://static.pexels.com/photos/50721/pencils-crayons-colourful-rainbow-50721.jpeg",
-  "https://static.pexels.com/photos/50721/pencils-crayons-colourful-rainbow-50721.jpeg",
-  "https://static.pexels.com/photos/50721/pencils-crayons-colourful-rainbow-50721.jpeg",
-  "https://static.pexels.com/photos/60628/flower-garden-blue-sky-hokkaido-japan-60628.jpeg"
-];
+
 const styles = StyleSheet.create({
   container: {
     flex: 1
