@@ -24,6 +24,7 @@ import { handleBackPress } from "../../utilities/BackButtonHandling";
 import { Navigation } from "react-native-navigation";
 import { manageComponentStats } from "../../actions/componentStats";
 import { userList } from "../../actions/list/listAction";
+
 import UsersList from "./../../components/users/usersList";
 
 let removeListener = true;
@@ -115,10 +116,12 @@ class Home extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1 }}>
+
           <UsersList
             listData={this.props.listData}
             navigateToNextScreen={this.navigateToNextScreen}
           />
+
         </View>
       </View>
     );
@@ -131,6 +134,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white"
+  },
+  item: {
+    fontSize: 17
+  },
+  item1: {
+    fontSize: 17,
+    fontWeight: "bold"
   }
 });
 

@@ -83,7 +83,8 @@ export const goHome = () =>
                           bottomTab: {
                             fontSize: 12,
                             text: "Home",
-                            icon: require("../assets/img/signin.png")
+                            icon: require("../assets/img/signin.png"),
+                            color: "black"
                           },
                           topBar: {
                             hideOnScroll: true,
@@ -195,6 +196,100 @@ export const goHome = () =>
                       }
                     }
                   ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  });
+
+export const goToHistory = () =>
+  Navigation.setRoot({
+    root: {
+      sideMenu: {
+        left: {
+          component: {
+            id: "sideDrawer",
+            name: "SideMenu"
+          }
+        },
+
+        center: {
+          stack: {
+            children: [
+              {
+                component: {
+                  name: "HistoryAll",
+                  id: "His",
+                  options: {
+                    topBar: {
+                      visible: true,
+                      hideOnScroll: false,
+                      title: {
+                        text: "HISTORY",
+                        color: "white"
+                      },
+                      leftButtons: {
+                        id: "buttonOne",
+                        icon: require("../assets/img/menu.png")
+                      },
+                      background: {
+                        color: "#05B8CC"
+                      },
+                      drawBehind: true,
+                      visible: true,
+                      animate: true
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  });
+
+export const goToAlert = () =>
+  Navigation.setRoot({
+    root: {
+      sideMenu: {
+        left: {
+          component: {
+            id: "sideDrawer",
+            name: "SideMenu"
+          }
+        },
+
+        center: {
+          stack: {
+            children: [
+              {
+                component: {
+                  name: "Alert",
+                  id: "alert",
+                  options: {
+                    topBar: {
+                      visible: true,
+                      hideOnScroll: false,
+                      title: {
+                        text: "Alerts",
+                        color: "white"
+                      },
+                      leftButtons: {
+                        id: "buttonOne",
+                        icon: require("../assets/img/menu.png")
+                      },
+                      background: {
+                        color: "#05B8CC"
+                      },
+                      drawBehind: true,
+                      visible: true,
+                      animate: true
+                    }
+                  }
                 }
               }
             ]

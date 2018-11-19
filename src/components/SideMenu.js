@@ -19,7 +19,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as AppAction from "../actions";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { goToAuth } from "../config/navigation";
+import { goToAuth, goToHistory, goHome, goToAlert } from "../config/navigation";
 
 class SideMenu extends React.Component {
   constructor(props) {
@@ -51,7 +51,8 @@ class SideMenu extends React.Component {
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}
             onPress={() => {
-              this.setScrenStack("Home", true);
+              // this.setScrenStack("Home", true);
+              goHome();
             }}
           >
             <View style={{ flex: 0.2 }}>
@@ -71,7 +72,9 @@ class SideMenu extends React.Component {
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}
             onPress={() => {
-              this.setScrenStack("Home", true);
+              // this.setScrenStack("HistoryAll", true);
+              this.hideSideMenu();
+              goToHistory();
             }}
           >
             <View style={{ flex: 0.2 }}>
@@ -92,7 +95,9 @@ class SideMenu extends React.Component {
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}
             onPress={() => {
-              this.setScrenStack("Loader", false);
+              // this.setScrenStack("Loader", false);
+              this.hideSideMenu();
+              goToAlert();
             }}
           >
             <View style={{ flex: 0.2 }}>
@@ -112,6 +117,7 @@ class SideMenu extends React.Component {
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}
             onPress={() => {
+              alert("Under Developement");
               this.hideSideMenu();
             }}
           >
