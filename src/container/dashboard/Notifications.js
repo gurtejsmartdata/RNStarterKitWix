@@ -10,18 +10,14 @@ import {
 } from "react-native";
 import { Navigation } from "react-native-navigation";
 
-export default class Alert extends React.Component {
+export default class Notifications extends React.Component {
   constructor(props) {
     super(props);
     this.isSideDrawerVisible = false;
     Navigation.events().bindComponent(this);
   }
-  componentWillUnmount() {
-    console.log("unmount");
-  }
 
   navigationButtonPressed({ buttonId }) {
-    console.log("WILLLLLMOUNTING");
     !this.isSideDrawerVisible
       ? (this.isSideDrawerVisible = true)
       : (this.isSideDrawerVisible = false);
@@ -53,50 +49,9 @@ export default class Alert extends React.Component {
             </Text>
           </View>
         </View>
-        <View style={{ flex: 0.1 }}>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              backgroundColor: "#05B8CC",
-              marginHorizontal: 20,
-              marginVertical: 20,
-              borderRadius: 30,
-              justifyContent: "center"
-            }}
-          >
-            <Text
-              style={{
-                textAlign: "center",
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "white"
-              }}
-            >
-              Refresh
-            </Text>
-          </TouchableOpacity>
-        </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  welcome: {
-    fontSize: 28
-  },
-  container: {
-    flex: 1
-  },
-  item1: {
-    fontSize: 17,
-    fontWeight: "bold"
-  },
-  item: {
-    fontSize: 15
-  },
-  details: {
-    flexDirection: "row",
-    alignItems: "center"
-  }
-});
+const styles = StyleSheet.create({});

@@ -12,9 +12,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  Button,
-  AsyncStorage,
-  ScrollView,
   Dimensions,
   TouchableOpacity
 } from "react-native";
@@ -59,7 +56,6 @@ class SignIn extends React.Component {
     );
   }
   render() {
-    console.log(Navigation, "this.props.componentIdthis.props.componentId");
     return (
       <View style={styles.container}>
         <View style={{ flex: 0.35 }} />
@@ -192,29 +188,22 @@ class SignIn extends React.Component {
 
         <View style={{ flex: 0.2 }} />
       </View>
-      // <ScrollView contentContainerStyle={styles.container}>
-      //   <TextInput
-      //     style={styles.input}
-      //     placeholder="Username"
-      //     autoCapitalize="none"
-      //     autoCorrect={false}
-      //     placeholderTextColor="white"
-      //     onChangeText={val => this.onChangeText("username", val)}
-      //   />
-      //   <TextInput
-      //     style={styles.input}
-      //     placeholder="Password"
-      //     autoCapitalize="none"
-      //     secureTextEntry={true}
-      //     placeholderTextColor="white"
-      //     onChangeText={val => this.onChangeText("password", val)}
-      //   />
-      //   <Button title="Sign In" onPress={this.signIn} />
-      //   <Button title="Sign Up" onPress={() => this.signUp()} />
-      // </ScrollView>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  user: state.user,
+  app: state.app
+});
+const mapDispatchToProps = dispatch => ({
+  appAction: bindActionCreators(AppAction, dispatch)
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);
 
 const styles = StyleSheet.create({
   input: {
@@ -234,15 +223,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#bfb6ad"
   }
 });
-const mapStateToProps = state => ({
-  user: state.user,
-  app: state.app
-});
-const mapDispatchToProps = dispatch => ({
-  appAction: bindActionCreators(AppAction, dispatch)
-});
-
-export default connect(
-  mapStateToProps,
-  null
-)(SignIn);

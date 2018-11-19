@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  AsyncStorage,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Navigation } from "react-native-navigation";
 
 export default class HistoryAll extends React.Component {
@@ -25,12 +18,8 @@ export default class HistoryAll extends React.Component {
       ]
     };
   }
-  componentWillUnmount() {
-    console.log("unmount");
-  }
 
   navigationButtonPressed({ buttonId }) {
-    console.log("WILLLLLMOUNTING");
     !this.isSideDrawerVisible
       ? (this.isSideDrawerVisible = true)
       : (this.isSideDrawerVisible = false);
@@ -47,105 +36,70 @@ export default class HistoryAll extends React.Component {
   }
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <View style={{ flex: 0.1 }} />
-        <View style={{ flex: 0.8 }}>
-          {this.state.data.length > 0 ? (
-            <ScrollView style={{ flex: 1 }}>
-              {this.state.data.map(item => {
-                return (
-                  // <Text
-                  //   style={{ fontSize: 20, paddingTop: 15, fontWeight: "bold" }}
-                  // >
-                  //   {item}
-                  // </Text>
+      <View style={{ flex: 1, paddingTop: 15 }}>
+        {this.state.data.length > 0 ? (
+          <ScrollView style={{ flex: 1 }}>
+            {this.state.data.map(item => {
+              return (
+                <View
+                  style={{
+                    height: 120,
+                    flexDirection: "row",
+                    borderBottomWidth: 2,
+                    borderBottomColor: "#dadada",
+                    marginBottom: 10,
+                    borderRadius: 20,
+                    overflow: "hidden"
+                  }}
+                >
                   <View
                     style={{
-                      height: 120,
-                      flexDirection: "row",
-                      borderWidth: 2,
-                      borderColor: "#dadada",
-                      marginHorizontal: 20,
-                      marginBottom: 10,
-                      borderRadius: 20,
-                      overflow: "hidden"
+                      flex: 0.7,
+                      paddingTop: 10,
+                      paddingHorizontal: 10,
+                      paddingBottom: 10
                     }}
                   >
-                    <View
-                      style={{
-                        flex: 0.7,
-                        paddingTop: 10,
-                        paddingLeft: 10,
-                        paddingBottom: 10
-                      }}
-                    >
-                      <View style={styles.details}>
-                        <Text style={styles.item1}>ID : </Text>
-                        <Text style={styles.item}>{item.id}</Text>
-                      </View>
-                      <View style={styles.details}>
-                        <Text style={styles.item1}>First Name : </Text>
-                        <Text style={styles.item}>{item.fname}</Text>
-                      </View>
-                      <View style={styles.details}>
-                        <Text style={styles.item1}>Last Name : </Text>
-                        <Text style={styles.item}>{item.lname}</Text>
-                      </View>
-                      <View style={styles.details}>
-                        <Text style={styles.item1}>Age : </Text>
-                        <Text style={styles.item}>{item.age}</Text>
-                      </View>
-                      <View style={styles.details}>
-                        <Text style={styles.item1}>Country : </Text>
-                        <Text style={styles.item}>{item.country}</Text>
-                      </View>
+                    <View style={styles.details}>
+                      <Text style={styles.item1}>ID : </Text>
+                      <Text style={styles.item}>{item.id}</Text>
                     </View>
-                    <View
-                      style={{
-                        flex: 0.3,
-                        justifyContent: "center",
-                        overflow: "hidden",
-                        alignItems: "center"
-                      }}
-                    />
+                    <View style={styles.details}>
+                      <Text style={styles.item1}>First Name : </Text>
+                      <Text style={styles.item}>{item.fname}</Text>
+                    </View>
+                    <View style={styles.details}>
+                      <Text style={styles.item1}>Last Name : </Text>
+                      <Text style={styles.item}>{item.lname}</Text>
+                    </View>
+                    <View style={styles.details}>
+                      <Text style={styles.item1}>Age : </Text>
+                      <Text style={styles.item}>{item.age}</Text>
+                    </View>
+                    <View style={styles.details}>
+                      <Text style={styles.item1}>Country : </Text>
+                      <Text style={styles.item}>{item.country}</Text>
+                    </View>
                   </View>
-                );
-              })}
-            </ScrollView>
-          ) : (
-            <View style={{ flex: 1, justifyContent: "center" }}>
-              <Text style={{ textAlign: "center", fontSize: 20 }}>
-                No History
-              </Text>
-            </View>
-          )}
-        </View>
-        <View style={{ flex: 0.1 }}>
-          <TouchableOpacity
-            onPress={() => {
-              this.setState({ data: [] });
-            }}
-            style={{
-              flex: 1,
-              backgroundColor: "#05B8CC",
-              marginHorizontal: 20,
-              marginVertical: 20,
-              borderRadius: 30,
-              justifyContent: "center"
-            }}
-          >
-            <Text
-              style={{
-                textAlign: "center",
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "white"
-              }}
-            >
-              Clear
+                  <View
+                    style={{
+                      flex: 0.3,
+                      justifyContent: "center",
+                      overflow: "hidden",
+                      alignItems: "center"
+                    }}
+                  />
+                </View>
+              );
+            })}
+          </ScrollView>
+        ) : (
+          <View style={{ flex: 1, justifyContent: "center" }}>
+            <Text style={{ textAlign: "center", fontSize: 20 }}>
+              No History
             </Text>
-          </TouchableOpacity>
-        </View>
+          </View>
+        )}
       </View>
     );
   }

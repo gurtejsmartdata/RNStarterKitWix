@@ -53,13 +53,14 @@ class UsersList extends React.Component {
             style={{
               flex: 1,
               flexDirection: "row",
-              borderWidth: 1,
-              borderColor: "#dadada"
+              padding: 10
+              // borderWidth: 1
+              // borderColor: "#dadada"
             }}
             key={index}
             onPress={this.props.navigateToNextScreen}
           >
-            <View style={{ flex: 0.7 }}>
+            <View style={{ flex: 0.7, padding: 10 }}>
               <View style={{ flexDirection: "row" }}>
                 <Text style={styles.item}>ID : </Text>
                 <Text style={styles.item}>{item.id}</Text>
@@ -76,7 +77,7 @@ class UsersList extends React.Component {
             <View style={{ flex: 0.3, justifyContent: "center" }}>
               <Image
                 source={{ uri: item.avatar }}
-                style={{ height: 100, width: 100 }}
+                style={{ height: 80, width: 80, borderRadius: 40 }}
               />
             </View>
           </TouchableOpacity>

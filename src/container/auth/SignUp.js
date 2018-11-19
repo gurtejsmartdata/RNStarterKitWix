@@ -21,7 +21,6 @@ export default class SignUp extends React.Component {
   signUp = async () => {
     const { username, password, email, phone_number } = this.state;
     try {
-      // here place your signup logic
       console.log("user successfully signed up!: ", success);
     } catch (err) {
       console.log("error signing up: ", err);

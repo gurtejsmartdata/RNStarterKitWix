@@ -83,7 +83,7 @@ export const goHome = () =>
                           bottomTab: {
                             fontSize: 12,
                             text: "Home",
-                            icon: require("../assets/img/signin.png"),
+                            icon: require("../assets/img/home.png"),
                             color: "black"
                           },
                           topBar: {
@@ -141,17 +141,79 @@ export const goHome = () =>
                   children: [
                     {
                       component: {
-                        name: "Tab2",
+                        name: "HistoryAll",
                         options: {
                           bottomTab: {
-                            text: "Tab 2",
+                            text: "History",
                             fontSize: 12,
-                            icon: require("../assets/img/signup.png")
+                            icon: require("../assets/img/history.png")
                           },
                           topBar: {
                             hideOnScroll: true,
                             title: {
-                              text: "Homescreen",
+                              text: "History",
+                              color: "white"
+                            },
+                            leftButtons: [
+                              {
+                                id: "buttonOne",
+                                icon: require("../assets/img/menu.png")
+                              }
+                            ],
+
+                            // subtitle: {
+                            //   text: "Sub Title",
+                            //   fontSize: 14,
+                            //   color: "white",
+                            //   fontFamily: "Helvetica",
+                            //   alignment: "center"
+                            // },
+                            background: {
+                              color: "#05B8CC"
+                              // component: {
+                              //   name: "NavBar"
+                              // }
+                            },
+                            drawBehind: false,
+                            visible: true,
+                            animate: true
+                            // sideMenu: {
+                            //   left: {
+                            //     width: 260,
+                            //     height: 270,
+                            //     visible: false,
+                            //     enabled: true
+                            //   },
+                            //   right: {
+                            //     width: 260,
+                            //     height: 270,
+                            //     visible: false,
+                            //     enabled: true
+                            //   }
+                            // }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                stack: {
+                  children: [
+                    {
+                      component: {
+                        name: "Notifications",
+                        options: {
+                          bottomTab: {
+                            text: "Notifications",
+                            fontSize: 12,
+                            icon: require("../assets/img/notifications.png")
+                          },
+                          topBar: {
+                            hideOnScroll: true,
+                            title: {
+                              text: "Notifications",
                               color: "white"
                             },
                             leftButtons: [
@@ -268,8 +330,8 @@ export const goToAlert = () =>
             children: [
               {
                 component: {
-                  name: "Alert",
-                  id: "alert",
+                  name: "Notifications",
+                  id: "noti",
                   options: {
                     topBar: {
                       visible: true,

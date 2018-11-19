@@ -68,7 +68,7 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
         </View>
-        <View style={styles.text}>
+        {/* <View style={styles.text}>
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}
             onPress={() => {
@@ -112,7 +112,7 @@ class SideMenu extends React.Component {
               <Text style={styles.welcome}>Alerts</Text>
             </View>
           </TouchableOpacity>
-        </View>
+        </View> */}
         <View style={styles.text}>
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}

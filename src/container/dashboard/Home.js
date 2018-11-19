@@ -5,17 +5,8 @@
  * @author: Ravi Kumar
  * */
 
-import React, { Suspense } from "react";
-import {
-  View,
-  Text,
-  Button,
-  StyleSheet,
-  BackHandler,
-  FlatList,
-  Image,
-  TouchableOpacity
-} from "react-native";
+import React from "react";
+import { View, StyleSheet } from "react-native";
 import { goToAuth } from "../../config/navigation";
 import { connect } from "react-redux";
 import * as AppAction from "../../actions";
@@ -24,15 +15,13 @@ import { handleBackPress } from "../../utilities/BackButtonHandling";
 import { Navigation } from "react-native-navigation";
 import { manageComponentStats } from "../../actions/componentStats";
 import { userList } from "../../actions/list/listAction";
+import Loader from "./../../components/common/loader";
 
 import UsersList from "./../../components/users/usersList";
 
 let removeListener = true;
 
 class Home extends React.Component {
-  /*
-		Constructor Function
-	*/
   constructor(props) {
     super(props);
     this.isSideDrawerVisible = false;
@@ -42,7 +31,6 @@ class Home extends React.Component {
   static getDerivedStateFromProps(props, state) {
     // Store prevId in state so we can compare when props change.
     // Clear out previously-loaded data (so we don't render stale stuff).
-    console.log(props, state, "props, stateprops, state");
     if (props.listData !== (state && state.listData)) {
       return {
         listData: props.listData
@@ -65,13 +53,6 @@ class Home extends React.Component {
         }
       });
     }
-  }
-
-  componentDidAppear() {
-    // BackHandler.addEventListener('hardwareBackPress', handleBackPress); // Back Button handling
-  }
-  componentDidDisappear() {
-    // BackHandler.removeEventListener('hardwareBackPress', handleBackPress); // Back Button handling
   }
 
   componentDidMount() {
@@ -112,43 +93,37 @@ class Home extends React.Component {
   };
 
   render() {
-    console.log(this.props, "props++home");
+    if (this.props.loading) {
+      return (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <Loader />
+        </View>
+      );
+    }
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1 }}>
-
           <UsersList
             listData={this.props.listData}
             navigateToNextScreen={this.navigateToNextScreen}
           />
-
         </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white"
-  },
-  item: {
-    fontSize: 17
-  },
-  item1: {
-    fontSize: 17,
-    fontWeight: "bold"
-  }
-});
-
 function mapStateToProps(state) {
-  console.log(state.userList.listData, "statestatestatestate");
   return {
     componentStats: state.componentStats.componentStats,
-    listData: state.userList.listData
+    listData: state.userList.listData,
+    loading: state.userList.loading
   };
 }
 
@@ -168,3 +143,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home);
+
+const styles = StyleSheet.create({});
