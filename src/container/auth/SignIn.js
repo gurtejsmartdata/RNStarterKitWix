@@ -47,7 +47,7 @@ class SignIn extends React.Component {
     const { username, password } = this.state;
     console.log(this.props, AppAction);
     removeListener = false;
-    this.props.dispatch(AppAction.login());
+    this.props.AppAction.login();
     goHome();
   };
   signUp() {
@@ -197,7 +197,7 @@ const mapStateToProps = state => ({
   app: state.app
 });
 const mapDispatchToProps = dispatch => ({
-  appAction: bindActionCreators(AppAction, dispatch)
+  AppAction: bindActionCreators(AppAction, dispatch)
 });
 
 export default connect(
