@@ -7,7 +7,6 @@ export const manageComponentStats = (
 ) => {
   return dispatch => {
     let data = { ...componentStats, [screenName]: componentId };
-    console.log(data, "datadatadata");
     dispatch({ type: "componentStats", payload: data });
   };
 };

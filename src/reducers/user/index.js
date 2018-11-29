@@ -32,7 +32,6 @@ export default (user = (state = initialState, action) => {
     case Types.LOGIN:
       return { ...state, isLoggedIn: true };
     case "LOGOUT":
-      console.log(action, "store.getState().userstore.getState().user");
       return { ...state, isLoggedIn: false, userData: null };
     default:
       return state;

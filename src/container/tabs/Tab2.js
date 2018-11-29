@@ -14,12 +14,9 @@ export default class Tab2 extends React.Component {
     this.isSideDrawerVisible = false;
     Navigation.events().bindComponent(this);
   }
-  componentWillMount() {
-    console.log("WILLLLLMOUNTING");
-  }
+  componentWillMount() {}
 
   navigationButtonPressed({ buttonId }) {
-    console.log("WILLLLLMOUNTING");
     !this.isSideDrawerVisible
       ? (this.isSideDrawerVisible = true)
       : (this.isSideDrawerVisible = false);

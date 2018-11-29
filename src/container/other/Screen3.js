@@ -23,7 +23,6 @@ class Screen3 extends React.Component {
     };
   }
   render() {
-    console.log(this.props.componentId, "Screen3props++");
     return (
       <View style={styles.container}>
         <Text>Screen 2</Text>

@@ -13,11 +13,9 @@ class NavBar extends Component {
     Navigation.events().bindComponent(this);
   }
   navigationButtonPressed = () => {
-    alert();
     !this.isSideDrawerVisible
       ? (this.isSideDrawerVisible = true)
       : (this.isSideDrawerVisible = false);
-    console.log(buttonId, "buttonIdbuttonIdbuttonId");
     Navigation.mergeOptions(this.props.componentId, {
       sideMenu: {
         left: {

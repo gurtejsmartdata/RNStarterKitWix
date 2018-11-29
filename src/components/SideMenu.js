@@ -51,7 +51,6 @@ class SideMenu extends React.Component {
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}
             onPress={() => {
-              // this.setScrenStack("Home", true);
               goHome();
             }}
           >
@@ -68,51 +67,6 @@ class SideMenu extends React.Component {
             </View>
           </TouchableOpacity>
         </View>
-        {/* <View style={styles.text}>
-          <TouchableOpacity
-            style={{ flex: 1, flexDirection: "row" }}
-            onPress={() => {
-              // this.setScrenStack("HistoryAll", true);
-              this.hideSideMenu();
-              goToHistory();
-            }}
-          >
-            <View style={{ flex: 0.2 }}>
-              <Icon
-                name="history"
-                size={width * 0.07}
-                style={{ alignSelf: "center", marginLeft: width * 0.055 }}
-              />
-            </View>
-
-            <View style={{ flex: 0.8, justifyContent: "center" }}>
-              <Text style={styles.welcome}>History</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.text}>
-          <TouchableOpacity
-            style={{ flex: 1, flexDirection: "row" }}
-            onPress={() => {
-              // this.setScrenStack("Loader", false);
-              this.hideSideMenu();
-              goToAlert();
-            }}
-          >
-            <View style={{ flex: 0.2 }}>
-              <Icon
-                name="bell"
-                size={width * 0.07}
-                style={{ alignSelf: "center", marginLeft: width * 0.055 }}
-              />
-            </View>
-
-            <View style={{ flex: 0.8, justifyContent: "center" }}>
-              <Text style={styles.welcome}>Alerts</Text>
-            </View>
-          </TouchableOpacity>
-        </View> */}
         <View style={styles.text}>
           <TouchableOpacity
             style={{ flex: 1, flexDirection: "row" }}

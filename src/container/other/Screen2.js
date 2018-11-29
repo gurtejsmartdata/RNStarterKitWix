@@ -27,7 +27,6 @@ class Screen2 extends React.Component {
   static getDerivedStateFromProps(props, state) {
     // Store prevId in state so we can compare when props change.
     // Clear out previously-loaded data (so we don't render stale stuff).
-    console.log(props, state, "props, stateprops, state");
     if (props !== state) {
       return {};
     }
@@ -45,7 +44,6 @@ class Screen2 extends React.Component {
     );
   }
   render() {
-    console.log(this.props.componentId, "Screen2props++");
     return (
       <View style={styles.container}>
         <Text>Screen 2</Text>
@@ -88,7 +86,6 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  console.log(state, "statestatestatestate");
   return { componentStats: state.componentStats.componentStats };
 }
 export default connect(

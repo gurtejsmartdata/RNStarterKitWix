@@ -29,7 +29,6 @@ class UsersList extends React.Component {
   static getDerivedStateFromProps(props, state) {
     // Store prevId in state so we can compare when props change.
     // Clear out previously-loaded data (so we don't render stale stuff).
-    console.log(props, state, "props, stateprops, state");
     if (props.listData !== (state && state.listData)) {
       return {
         listData: props.listData
@@ -40,7 +39,6 @@ class UsersList extends React.Component {
   }
 
   render() {
-    console.log(this.props, "props++home");
     return (
       <FlatList
         data={
@@ -54,8 +52,6 @@ class UsersList extends React.Component {
               flex: 1,
               flexDirection: "row",
               padding: 10
-              // borderWidth: 1
-              // borderColor: "#dadada"
             }}
             key={index}
             onPress={this.props.navigateToNextScreen}

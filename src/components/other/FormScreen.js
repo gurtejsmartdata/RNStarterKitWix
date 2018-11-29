@@ -121,7 +121,6 @@ export default class FormScreen extends Component {
               color: Colors.blue30,
               placeholderTextColor: Colors.dark50
             }}
-            // onSearchChange={value => console.warn('value', value)}
           >
             {_.map(options, option => (
               <Picker.Item
@@ -158,14 +157,6 @@ export default class FormScreen extends Component {
             onChange={nativePickerValue => this.setState({ nativePickerValue })}
             rightIconSource={dropdown}
             containerStyle={{ marginTop: 20 }}
-            // renderNativePicker={(props) => {
-            //   return (
-            //     <View flex bg-red50>
-            //       <Text>CUSTOM NATIVE PICKER</Text>
-            //     </View>
-            //   );
-            // }}
-            // topBarProps={{doneLabel: 'YES', cancelLabel: 'NO'}}
           >
             {_.map(options, option => (
               <Picker.Item

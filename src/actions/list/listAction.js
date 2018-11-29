@@ -1,6 +1,5 @@
 export function userList() {
   return (dispatch, getstate) => {
-    console.log("User Liast");
     //eslint-disable-line
     dispatch({ type: "LIST_GET_REQUEST" });
     //If we want to make use of access token while calling an API the we can get that from REDUX state directly
@@ -9,11 +8,6 @@ export function userList() {
     fetch(`${getstate().appConfig.serverUrl}api/users?page=2`)
       .then(response => response.json())
       .then(responseJson => {
-        console.log(
-          `${getstate().appConfig.serverUrl}api/users?page=2`,
-          "RESPONSE",
-          responseJson
-        );
         dispatch({
           type: "LIST_GET_SUCCESS",
           payload: responseJson

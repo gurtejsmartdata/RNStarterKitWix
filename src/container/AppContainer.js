@@ -11,9 +11,7 @@ import { View, Text, StyleSheet, AsyncStorage } from "react-native";
 import { goToAuth, goHome } from "../config/navigation";
 
 export default class AppContainer extends React.Component {
-  componentWillUnmount() {
-    console.log("unmount");
-  }
+  componentWillUnmount() {}
 
   render() {
     return (

@@ -13,7 +13,6 @@ import promise from "./promise";
 import array from "./array";
 import whitelist from "./whitelist";
 import { goToAuth, goHome } from "../config/navigation";
-// import startApp from '../config/navigators'
 export default function setup() {
   const isDev = global.isDebuggingInChrome || __DEV__; // eslint-disable-line
 
@@ -38,7 +37,6 @@ export default function setup() {
     window.store = store;
   }
   persistStore(store, { whitelist, storage: AsyncStorage }, () => {
-    console.log("newstore", store.getState().app.root, store.getState().user);
     if (store.getState().user.isLoggedIn) {
       goHome();
     } else {
